@@ -21,7 +21,7 @@ function createNumberObjects(arr) {
     let Object = {
       number: arr[i],
       isEven: arr[i] % 2 === 0 ? true : false,
-      double: arr[i] * arr[i],
+      double: arr[i] * 2,
     };
 
     arrObject.push(Object);
