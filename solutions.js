@@ -31,3 +31,64 @@ function createNumberObjects(arr) {
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 createNumberObjects(numbers);
+
+const students = [
+  // ... (Your array of students with their information)
+  {
+    name: "Alice",
+    age: 25,
+    grades: [90, 80, 95],
+    hobbies: ["reading", "gaming"],
+  },
+  {
+    name: "Javed",
+    age: 17,
+    grades: [65, 40, 75],
+    hobbies: ["gaming", "painting"],
+  },
+  {
+    name: "Arman",
+    age: 25,
+    grades: [90, 85, 65],
+    hobbies: ["reading", "sports"],
+  },
+];
+
+function findTopStudents(arr, marks) {
+  //   let topper = [];
+
+  let topper = arr.filter((student) => {
+    return student.grades.some((el) => el >= marks);
+  });
+
+  console.log(topper);
+}
+
+function addHobby(arr, name, hobbies) {
+  let findArr = arr.find((el) => el.name === name);
+
+  findArr.hobbies.push(hobbies);
+  console.log(findArr);
+}
+// Example usage:
+
+findTopStudents(students, 85);
+// Output: Returns an array of students with an average grade greater than 85
+
+addHobby(students, "Alice", "painting");
+// Output: Adds 'painting' to the hobbies array of the student with name 'Alice'
+
+function updateStudent(arr, name, updatedata) {
+  let findArr = arr.find((el) => el.name === name);
+  findArr.age = updatedata.age;
+  findArr.grades = updatedata.grades;
+  findArr.hobbies = updatedata.hobbies;
+
+  console.log(findArr, "Update data");
+}
+
+updateStudent(students, "Alice", {
+  age: 20,
+  grades: [45, 56, 76],
+  hobbies: ["reading", "painting"],
+});
